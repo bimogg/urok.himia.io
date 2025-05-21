@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Химия</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: Georgia, serif;
+      background: linear-gradient(to bottom right, #f4ecde, #fff8e6);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .blocks {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        width: 90% !important;
+        height: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <div style="width: 96%; height: 96%; background-color: #fefaf0; border: 3px solid #8b7e73;
+                border-radius: 16px; padding: 40px; display: flex; flex-direction: column;
+                justify-content: space-between; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+
+      <!-- Заголовок -->
+      <div style="background-color: #c45f4e; color: #2f4630; padding: 30px; font-size: 60px;
+      font-weight: bold; text-align: center; position: relative; border-bottom: 4px solid #8b7e73;
+      border-radius: 12px 12px 0 0;">
+        ХИМИЯ
+        <div style="position: absolute; right: 40px; top: 30px; font-size: 20px;"></div>
+      </div>
+
+      <!-- Центр -->
+      <div style="text-align: center; animation: fadeIn 1s ease-out;">
+        <div style="font-size: 44px; font-weight: bold; margin-bottom: 15px;">Выберите тему</div>
+        <div style="font-size: 28px;">Изучите основы органической химии с помощью понятных изображений</div>
+      </div>
+
+      <!-- Блоки -->
+      <div class="blocks" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+                                  animation: fadeIn 1.2s ease-out; margin-top: 30px;">
+
+        <!-- Полимеры -->
+        <a href="polymer.html" style="display: block; width: 310px; height: 310px; overflow: hidden;
+                                       border-radius: 20px; transition: 0.3s;">
+          <img src="IMAGE 2025-05-21 23:55:39.jpg" alt="Полимеры"
+               style="width: 100%; height: 100%; object-fit: cover; display: block;
+                      transition: 0.4s ease; border-radius: 20px;"
+               onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.3)'"
+               onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+        </a>
+
+        <!-- Амины -->
+        <a href="karbons.html" style="display: block; width: 310px; height: 310px; overflow: hidden;
+                                     border-radius: 20px; transition: 0.3s;">
+          <img src="IMAGE 2025-05-21 23:55:43.jpg" alt="Амины"
+               style="width: 100%; height: 100%; object-fit: cover; display: block;
+                      transition: 0.4s ease; border-radius: 20px;"
+               onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.3)'"
+               onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+        </a>
+
+        <!-- Кислоты -->
+        <a href="amini.html" style="display: block; width: 310px; height: 310px; overflow: hidden;
+                                    border-radius: 20px; transition: 0.3s;">
+          <img src="IMAGE 2025-05-21 23:55:35.jpg" alt="Кислоты"
+               style="width: 100%; height: 100%; object-fit: cover; display: block;
+                      transition: 0.4s ease; border-radius: 20px;"
+               onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.3)'"
+               onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Полимеры</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background-color: #fefef9;
+      color: #2f4630;
+      display: flex;
+      flex-direction: column;
+    }
+    .hidden { display: none; }
+    .visible { display: block; }
+    .button-active {
+      background-color: #cfe3d4 !important;
+      border: 2px solid #8b9e8c !important;
+      font-weight: bold !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Шапка -->
+  <div style="padding: 30px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-bottom: 1px solid #ddd;">
+    <div>
+      <div style="font-size: 32px; font-weight: bold;">Астана</div>
+      <div style="font-size: 18px; color: #555;">Университет имени Назарбаева</div>
+    </div>
+    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+      <a href="polymer.html" style="padding: 10px 18px; border: 2px solid #8b9e8c; border-radius: 25px; background-color: #cfe3d4;
+         font-size: 16px; font-weight: bold; cursor: pointer; text-decoration: none; color: #2f4630;">
+        Полимеры
+      </a>
+      <a href="amini.html" style="padding: 10px 18px; border: 1px solid #ccc; border-radius: 25px; background-color: white;
+         font-size: 16px; cursor: pointer; text-decoration: none; color: #2f4630;">
+        Амины
+      </a>
+      <a href="karbons.html" style="padding: 10px 18px; border: 1px solid #ccc; border-radius: 25px; background-color: white;
+         font-size: 16px; cursor: pointer; text-decoration: none; color: #2f4630;">
+        Карбоновые кислоты и спирты
+      </a>
+    </div>
+  </div>
+
+  <!-- Контент -->
+  <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 40px; flex-wrap: wrap; gap: 40px;">
+
+    <!-- Левая часть -->
+    <div style="flex: 1; min-width: 300px;">
+      <div onclick="resetAll()" style="font-size: 48px; font-weight: bold; margin-bottom: 20px; cursor: pointer;">ПОЛИМЕРЫ</div>
+
+      <div style="border: 2px solid #8b9e8c; border-radius: 12px; padding: 20px; font-size: 20px; background-color: #ffffff; margin-bottom: 30px;">
+        Полимеры — это вещества, состоящие из множества повторяющихся звеньев (мономеров), соединённых в длинные цепи.
+      </div>
+
+      <ul style="font-size: 20px; padding-left: 20px; line-height: 1.6;">
+        <li>Природные полимеры: целлюлоза, белки, ДНК</li>
+        <li>Синтетические полимеры: полиэтилен, полипропилен, нейлон</li>
+        <li>Общая структура: [-CH₂-CH₂-]ₙ</li>
+      </ul>
+
+      <div style="margin-top: 30px; font-size: 22px; font-weight: bold; margin-bottom: 10px;">Типы полимеров:</div>
+
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <button onclick="showBlock('linear', this)" style="padding: 12px 20px; font-size: 18px; background-color: white; border: 2px solid #ccc; border-radius: 10px; cursor: pointer;">Линейные</button>
+        <button onclick="showBlock('branched', this)" style="padding: 12px 20px; font-size: 18px; background-color: white; border: 2px solid #ccc; border-radius: 10px; cursor: pointer;">Разветвлённые</button>
+        <button onclick="showBlock('crosslinked', this)" style="padding: 12px 20px; font-size: 18px; background-color: white; border: 2px solid #ccc; border-radius: 10px; cursor: pointer;">Сшитые</button>
+      </div>
+    </div>
+
+    <!-- Правая часть -->
+    <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; align-items: center;">
+      <!-- Картинка по умолчанию -->
+      <div id="defaultBlock" class="visible">
+        <img src="polymer-main.jpg" style="max-width: 100%; border-radius: 12px;">
+      </div>
+
+      <!-- Линейные -->
+      <div id="linear" class="hidden">
+        <img src="linear-polymer.png" style="max-width: 100%; border-radius: 12px;">
+        <a href="linear-3d.html" target="_blank" style="margin-top: 20px; padding: 12px 20px; font-size: 18px; background-color: #8b9e8c; color: white; text-decoration: none; border-radius: 8px;">3D модель: линейные</a>
+      </div>
+
+      <!-- Разветвлённые -->
+      <div id="branched" class="hidden">
+        <img src="branched-polymer.png" style="max-width: 100%; border-radius: 12px;">
+        <a href="branched-3d.html" target="_blank" style="margin-top: 20px; padding: 12px 20px; font-size: 18px; background-color: #8b9e8c; color: white; text-decoration: none; border-radius: 8px;">3D модель: разветвлённые</a>
+      </div>
+
+      <!-- Сшитые -->
+      <div id="crosslinked" class="hidden">
+        <img src="crosslinked-polymer.png" style="max-width: 100%; border-radius: 12px;">
+        <a href="crosslinked-3d.html" target="_blank" style="margin-top: 20px; padding: 12px 20px; font-size: 18px; background-color: #8b9e8c; color: white; text-decoration: none; border-radius: 8px;">3D модель: сшитые</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Скрипт -->
+  <script>
+    function showBlock(id, btn) {
+      document.getElementById("defaultBlock").className = "hidden";
+      document.querySelectorAll('#linear, #branched, #crosslinked').forEach(el => el.className = 'hidden');
+      document.getElementById(id).className = 'visible';
+      document.querySelectorAll("button").forEach(b => b.classList.remove("button-active"));
+      btn.classList.add("button-active");
+    }
+
+    function resetAll() {
+      document.querySelectorAll('#linear, #branched, #crosslinked').forEach(el => el.className = 'hidden');
+      document.getElementById("defaultBlock").className = "visible";
+      document.querySelectorAll("button").forEach(b => b.classList.remove("button-active"));
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Карбоновые кислоты</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background-color: #fefef9;
+      color: #2f4630;
+      display: flex;
+      flex-direction: column;
+    }
+    .hidden { display: none; }
+    .visible { display: block; }
+    .button-active {
+      background-color: #cfe3d4 !important;
+      border: 2px solid #8b9e8c !important;
+      font-weight: bold !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Шапка -->
+  <div style="padding: 30px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-bottom: 1px solid #ddd;">
+    <div>
+      <div style="font-size: 32px; font-weight: bold;">Астана</div>
+      <div style="font-size: 18px; color: #555;">Университет имени Назарбаева</div>
+    </div>
+    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+      <a href="polymer.html" style="padding: 10px 18px; border: 1px solid #ccc; border-radius: 25px; background-color: white;
+         font-size: 16px; cursor: pointer; text-decoration: none; color: #2f4630;">
+        Полимеры
+      </a>
+      <a href="amini.html" style="padding: 10px 18px; border: 1px solid #ccc; border-radius: 25px; background-color: white;
+         font-size: 16px; cursor: pointer; text-decoration: none; color: #2f4630;">
+        Амины
+      </a>
+      <a href="karbons.html" style="padding: 10px 18px; border: 2px solid #8b9e8c; border-radius: 25px; background-color: #cfe3d4;
+         font-size: 16px; font-weight: bold; cursor: pointer; text-decoration: none; color: #2f4630;">
+        Карбоновые кислоты и спирты
+      </a>
+    </div>
+  </div>
+
+  <!-- Контент -->
+  <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 40px; flex-wrap: wrap; gap: 40px;">
+
+    <!-- Левая часть -->
+    <div style="flex: 1; min-width: 300px;">
+      <div onclick="resetAll()" style="font-size: 42px; font-weight: bold; margin-bottom: 20px; cursor: pointer;">КАРБОНОВЫЕ КИСЛОТЫ</div>
+
+      <div style="border: 2px solid #8b9e8c; border-radius: 12px; padding: 20px; font-size: 20px; background-color: #ffffff; margin-bottom: 30px;">
+        Карбоновые кислоты — это органические соединения, содержащие карбоксильную группу -COOH.
+      </div>
+
+      <ul style="font-size: 20px; padding-left: 20px; line-height: 1.6;">
+        <li>Общая формула: R-COOH</li>
+        <li>Примеры: уксусная кислота, муравьиная кислота, бензойная кислота</li>
+        <li>Кислотные свойства обусловлены наличием -OH и =O у атома углерода</li>
+      </ul>
+
+      <div style="margin-top: 30px; font-size: 22px; font-weight: bold; margin-bottom: 10px;">Типы кислот:</div>
+
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <button onclick="showBlock('saturated', this)" style="padding: 12px 20px; font-size: 18px; background-color: white; border: 2px solid #ccc; border-radius: 10px; cursor: pointer;">Насыщенные</button>
+        <button onclick="showBlock('unsaturated', this)" style="padding: 12px 20px; font-size: 18px; background-color: white; border: 2px solid #ccc; border-radius: 10px; cursor: pointer;">Ненасыщенные</button>
+        <button onclick="showBlock('aromatic', this)" style="padding: 12px 20px; font-size: 18px; background-color: white; border: 2px solid #ccc; border-radius: 10px; cursor: pointer;">Ароматические</button>
+      </div>
+    </div>
+
+    <!-- Правая часть -->
+    <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; align-items: center;">
+      <!-- Изначальное изображение -->
+      <div id="defaultBlock" class="visible">
+        <img src="acid-main.jpg" style="max-width: 100%; border-radius: 12px;">
+      </div>
+
+      <!-- Насыщенные -->
+      <div id="saturated" class="hidden">
+        <img src="saturated-acid.png" style="max-width: 100%; border-radius: 12px;">
+        <a href="saturated-3d.html" target="_blank" style="margin-top: 20px; padding: 12px 20px; font-size: 18px; background-color: #8b9e8c; color: white; text-decoration: none; border-radius: 8px;">3D модель: насыщенные</a>
+      </div>
+
+      <!-- Ненасыщенные -->
+      <div id="unsaturated" class="hidden">
+        <img src="unsaturated-acid.png" style="max-width: 100%; border-radius: 12px;">
+        <a href="unsaturated-3d.html" target="_blank" style="margin-top: 20px; padding: 12px 20px; font-size: 18px; background-color: #8b9e8c; color: white; text-decoration: none; border-radius: 8px;">3D модель: ненасыщенные</a>
+      </div>
+
+      <!-- Ароматические -->
+      <div id="aromatic" class="hidden">
+        <img src="aromatic-acid.png" style="max-width: 100%; border-radius: 12px;">
+        <a href="aromatic-3d.html" target="_blank" style="margin-top: 20px; padding: 12px 20px; font-size: 18px; background-color: #8b9e8c; color: white; text-decoration: none; border-radius: 8px;">3D модель: ароматические</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Скрипт -->
+  <script>
+    function showBlock(id, btn) {
+      document.getElementById("defaultBlock").className = "hidden";
+      document.querySelectorAll('#saturated, #unsaturated, #aromatic').forEach(el => el.className = 'hidden');
+      document.getElementById(id).className = 'visible';
+      document.querySelectorAll("button").forEach(b => b.classList.remove("button-active"));
+      btn.classList.add("button-active");
+    }
+
+    function resetAll() {
+      document.querySelectorAll('#saturated, #unsaturated, #aromatic').forEach(el => el.className = 'hidden');
+      document.getElementById("defaultBlock").className = "visible";
+      document.querySelectorAll("button").forEach(b => b.classList.remove("button-active"));
+    }
+  </script>
+
+</body>
+</html>
